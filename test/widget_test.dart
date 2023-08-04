@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:godwin_ebri_portfolio/Application/app/main_app.dart';
 
-import 'package:godwin_ebri_portfolio/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:godwin_ebri_portfolio/core/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:godwin_ebri_portfolio/core/routing/routes.dart';
+import 'package:godwin_ebri_portfolio/core/theme/theme.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -8,24 +9,15 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'ToDo App',
+      title: 'Godwin Ebri',
       localizationsDelegates: const [
         ...GlobalMaterialLocalizations.delegates,
         GlobalWidgetsLocalizations.delegate
       ],
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
-      theme: ThemeData.from(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xff64B6F2),
-          brightness: Brightness.dark,
-        ),
-      ),
-      darkTheme: ThemeData.from(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff64B6F2)),
-      ),
+      themeMode: ThemeMode.dark,
+      //theme: AppTheme.darkTheme,
+      darkTheme: AppTheme.darkTheme,
       routerConfig: routes,
     );
   }

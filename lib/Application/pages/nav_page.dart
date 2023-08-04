@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
-import 'package:go_router/go_router.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/about_me/about_page.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/get_in_touch/get_in_touch.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/home/home_mobile.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/home/home_web.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/home/home_widgets/app_bar_mobile.dart';
-import 'package:godwin_ebri_portfolio/core/page_config.dart';
+import 'package:godwin_ebri_portfolio/Application/pages/home/home_widgets/app_bar_web.dart';
+import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
 
 class NavPage extends StatefulWidget {
-  const NavPage({
+  NavPage({
     super.key,
     //required String tab,
   }); //: index = tabs.indexWhere((element) => element.name == tab);
 
-  final int indexWeb = 0;
-  final int indexMobile = 0;
-
   static const tabsWeb = [
     HomeWeb.pageConfig,
+    AboutPage.pageConfig,
     AboutPage.pageConfig,
     ContactPage.pageConfig,
   ];
 
   static const tabsMobile = [
     HomeMobile.pageConfig,
+    AboutPage.pageConfig,
     AboutPage.pageConfig,
     ContactPage.pageConfig,
   ];
@@ -38,12 +37,8 @@ class NavPage extends StatefulWidget {
 }
 
 class _NavPageState extends State<NavPage> {
-  // final destinations = HomePage.tabs
-  //     .map(
-  //       (page) =>
-  //           NavigationDestination(icon: Icon(page.icon), label: page.name),
-  //     )
-  //     .toList();
+  int indexWeb = 0;
+  int indexMobile = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +56,14 @@ class _NavPageState extends State<NavPage> {
                 ),
                 builder: (_) => //HomePage.tabs[widget.index].child,
                     Scaffold(
-                  appBar: AppBar(),
-                  body: NavPage.tabsWeb[widget.indexWeb].child,
+                  appBar: AppBarWeb(
+                    themeData: theme,
+                    homeOnPressed: () {},
+                    workOnPressed: () {},
+                    aboutOnPressed: () {},
+                    contactOnPressed: () {},
+                  ),
+                  body: NavPage.tabsWeb[indexWeb].child,
                 ),
               ),
 
@@ -72,8 +73,34 @@ class _NavPageState extends State<NavPage> {
                   'home_mobile',
                 ),
                 builder: (_) => Scaffold(
-                  appBar: const AppBarMobile(),
-                  body: NavPage.tabsMobile[widget.indexMobile].child,
+                  appBar: AppBarMobile(
+                    themeData: theme,
+                    homeOnPressed: () {
+                      setState(() {
+                        indexMobile = 0;
+                      });
+                      debugPrint(indexMobile.toString());
+                    },
+                    workOnPressed: () {
+                      setState(() {
+                        indexMobile = 1;
+                      });
+                      debugPrint(indexMobile.toString());
+                    },
+                    aboutOnPressed: () {
+                      setState(() {
+                        indexMobile = 2;
+                      });
+                      debugPrint(indexMobile.toString());
+                    },
+                    contactOnPressed: () {
+                      setState(() {
+                        indexMobile = 3;
+                      });
+                      debugPrint(indexMobile.toString());
+                    },
+                  ),
+                  body: NavPage.tabsMobile[indexMobile].child,
                 ),
               ),
             },
@@ -82,12 +109,12 @@ class _NavPageState extends State<NavPage> {
       ),
     );
   }
+}
 
-  // void _tapOnNavigationDestination(BuildContext context, int index) =>
+ // void _tapOnNavigationDestination(BuildContext context, int index) =>
   //     context.goNamed(
   //       NavPage.pageConfig.name,
   //       pathParameters: {
   //         'tab': HomePage.tabs[index].name,
   //       },
   //     );
-}
