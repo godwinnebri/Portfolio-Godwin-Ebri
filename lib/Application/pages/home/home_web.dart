@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/home/home_widgets/connect_link.dart';
 import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
+import 'package:godwin_ebri_portfolio/core/theme/theme.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class HomeWeb extends StatelessWidget {
   const HomeWeb({super.key});
@@ -14,205 +16,226 @@ class HomeWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    double width = MediaQuery.of(context).size.width;
 
     return Container(
       //height: 200,
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/mobilebg.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/images/webbg.png'), fit: BoxFit.cover),
       ),
 
       child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 140),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              // const Gap(40),
-
-              //* HERO
-              Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            //* HERO
+            Padding(
+              padding: const EdgeInsets.only(left: 160, right: 0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Flexible(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Hi,',
-                                    style: themeData.textTheme.displayLarge,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Hi,',
+                            style: width < 1055
+                                ? themeData.textTheme.displayMedium?.copyWith(
+                                    color: const Color(0xff616166),
+                                  )
+                                : themeData.textTheme.displayLarge?.copyWith(
+                                    color: const Color(0xff616166),
                                   ),
-                                  Text(
-                                    'I\'m Godwin',
-                                    style: themeData.textTheme.displayLarge,
-                                  ),
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              GradientText(
+                                'I\'m Godwin',
+                                style: width < 1055
+                                    ? themeData.textTheme.displayMedium
+                                    : themeData.textTheme.displayLarge,
+                                gradientType: GradientType.linear,
+                                gradientDirection: GradientDirection.ltr,
+                                radius: .1,
+                                colors: [
+                                  Colors.white.withOpacity(0.2),
+                                  Colors.white,
                                 ],
                               ),
-                            ),
-                            const Gap(8),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12),
-                              child: SizedBox(
-                                width: 84,
-                                child: Text(
-                                  'Mobile Dev && Designer',
-                                  style:
-                                      themeData.textTheme.titleLarge?.copyWith(
-                                    color: const Color(
-                                      0xff616166,
-                                    ),
-                                  ),
-                                ),
+                              const Gap(8),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: width < 1055
+                                    ? null
+                                    : SizedBox(
+                                        width: 84,
+                                        child: Text(
+                                          'Mobile Dev && Designer',
+                                          style: themeData.textTheme.titleLarge
+                                              ?.copyWith(
+                                            color: const Color(
+                                              0xff616166,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const Gap(14),
-                        SizedBox(
-                          width: 480,
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Gap(18),
+                      SizedBox(
+                        width: width < 1055 ? 250 : 500,
+                        child: Flexible(
                           child: Text(
                             'Integer sollicitudin venenatis vehicula. Mauris quis orci risus. Donec eu dolor viverra, efficitur orci feugiat, mollis libero. Maecenas purus mauris, lobortis in leo sed, ultricies ultrices tellus.',
                             style: themeData.textTheme.titleLarge?.copyWith(
                               color: const Color(0xffBDBDBF),
-                              height: 1.8,
+                              height: 2,
                             ),
                           ),
                         ),
-                        const Gap(24),
-                        SizedBox(
-                          height: 22,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset('assets/images/github.png'),
-                              const Gap(24),
-                              Image.asset('assets/images/dribbble.png'),
-                              const Gap(24),
-                              Image.asset('assets/images/instagram.png'),
-                            ],
-                          ),
+                      ),
+                      const Gap(40),
+                      SizedBox(
+                        height: 22,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/github.png'),
+                            const Gap(24),
+                            Image.asset('assets/images/dribbble.png'),
+                            const Gap(24),
+                            Image.asset('assets/images/instagram.png'),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   // const Expanded(
                   //   child: SizedBox(),
                   // ),
 
+                  //* Hero image
                   Expanded(
-                    child: Image.asset(
-                      'assets/images/heroweb.png',
+                    child: SizedBox(
+                      height: 700,
+                      child: Image.asset(
+                        'assets/images/heroweb.png',
+                      ),
                     ),
                   ),
-
-                  //*hero image
-                  // Expanded(
-                  //   child: Container(
-                  //     //clipBehavior: Clip.none,
-                  //     height: 450,
-                  //     width: 500,
-                  //     decoration: const BoxDecoration(
-                  //       image: DecorationImage(
-                  //           image: AssetImage(
-                  //             'assets/images/heromobile.png',
-                  //           ),
-                  //           fit: BoxFit.cover),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
+            ),
 
-              const Gap(78),
+            const Gap(78),
 
-              //* technologies
-              Padding(
-                padding: const EdgeInsets.only(left: 40, right: 60),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
+            //* technologies
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 120),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: width < 1055 ? 400 : 600,
+                    child: GradientText(
                       'Crafting Digital Experiences && Mobile Magic ✨',
-                      style: themeData.textTheme.displayMedium,
+                      style: width < 1055
+                          ? themeData.textTheme.displayMedium
+                          : themeData.textTheme.displayLarge,
+                      gradientType: GradientType.linear,
+                      gradientDirection: GradientDirection.ltr,
+                      radius: .4,
+                      colors: [
+                        Colors.white.withOpacity(0.2),
+                        Colors.white,
+                      ],
                     ),
-                    const Gap(12),
-                    SizedBox(
-                      width: 70,
-                      child: Text(
-                        'With Flutter && Figma',
-                        style: themeData.textTheme.titleLarge?.copyWith(
-                          color: const Color(
-                            0xff616166,
-                          ),
+                  ),
+                  const Gap(12),
+                  SizedBox(
+                    width: 70,
+                    child: Text(
+                      'With Flutter && Figma',
+                      style: themeData.textTheme.titleLarge?.copyWith(
+                        color: const Color(
+                          0xff616166,
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
 
-              const Gap(4),
-              //*hero image
-              SizedBox(
-                width: 400,
-                child: Image.asset(
-                  'assets/images/technologies.png',
-                ),
+            const Gap(8),
+            //*technologies image
+            SizedBox(
+              width: 530,
+              child: Image.asset(
+                'assets/images/technologies.png',
               ),
+            ),
 
-              const Gap(100),
+            const Gap(100),
 
-              //* LET'S CONNECT
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 160,
-                      child: Text(
-                        'Let\'s Connect',
-                        style: themeData.textTheme.displayMedium,
-                      ),
-                    ),
-                    const Gap(26),
-                    Divider(
-                      color: Colors.white.withOpacity(0.2),
-                    ),
-                    const Gap(26),
-                    ConnectLinks(
-                      themeData: themeData,
-                      linkTitle: 'MAIL',
-                      linkText: 'godwinnebri@gmail.com',
-                    ),
-                    const Gap(16),
-                    ConnectLinks(
-                      themeData: themeData,
-                      linkTitle: 'TWITTER',
-                      linkText: 'gxdwinn',
-                    ),
-                    const Gap(16),
-                    ConnectLinks(
-                      themeData: themeData,
-                      linkTitle: 'WHATSAPP',
-                      linkText: '+2349130733098',
-                    ),
-                    const Gap(40),
-                  ],
-                ),
+            //* LET'S CONNECT
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 120,
               ),
-            ],
-          ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 160,
+                    child: GradientText(
+                      'Let\'s Connect',
+                      style: themeData.textTheme.displayMedium,
+                      gradientType: GradientType.linear,
+                      gradientDirection: GradientDirection.ltr,
+                      radius: 1,
+                      colors: [
+                        Colors.white.withOpacity(0.5),
+                        Colors.white,
+                      ],
+                    ),
+                  ),
+                  const Gap(20),
+                  Divider(
+                    color: Colors.white.withOpacity(0.2),
+                  ),
+                  const Gap(20),
+                  ConnectLinks(
+                    themeData: themeData,
+                    linkTitle: 'MAIL',
+                    linkText: 'godwinnebri@gmail.com',
+                  ),
+                  const Gap(16),
+                  ConnectLinks(
+                    themeData: themeData,
+                    linkTitle: 'TWITTER',
+                    linkText: 'gxdwinn',
+                  ),
+                  const Gap(16),
+                  ConnectLinks(
+                    themeData: themeData,
+                    linkTitle: 'WHATSAPP',
+                    linkText: '+2349130733098',
+                  ),
+                  const Gap(40),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

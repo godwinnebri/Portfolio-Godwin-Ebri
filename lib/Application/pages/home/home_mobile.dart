@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/home/home_widgets/connect_link.dart';
 import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class HomeMobile extends StatelessWidget {
   const HomeMobile({super.key});
@@ -28,9 +29,16 @@ class HomeMobile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Gap(40),
-            Text(
+            GradientText(
               'Hi, I\'m Godwin',
               style: themeData.textTheme.displayMedium,
+              gradientType: GradientType.linear,
+              gradientDirection: GradientDirection.ltr,
+              radius: .6,
+              colors: [
+                Colors.white.withOpacity(0.3),
+                Colors.white,
+              ],
             ),
             const Gap(8),
             Text(
@@ -74,7 +82,6 @@ class HomeMobile extends StatelessWidget {
 
             //*hero image
             Container(
-              clipBehavior: Clip.none,
               height: 450,
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -93,9 +100,17 @@ class HomeMobile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  GradientText(
                     'Crafting Digital Experiences && Mobile Magic ✨',
                     style: themeData.textTheme.displayMedium,
+                    gradientType: GradientType.linear,
+                    gradientDirection: GradientDirection.ltr,
+                    radius: 1,
+                    colors: [
+                      Colors.white.withOpacity(0.3),
+                      Colors.white,
+                      Colors.white,
+                    ],
                   ),
                   const Gap(12),
                   SizedBox(
@@ -134,16 +149,23 @@ class HomeMobile extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: 160,
-                    child: Text(
+                    child: GradientText(
                       'Let\'s Connect',
                       style: themeData.textTheme.displayMedium,
+                      gradientType: GradientType.linear,
+                      gradientDirection: GradientDirection.ltr,
+                      radius: 1,
+                      colors: [
+                        Colors.white.withOpacity(0.3),
+                        Colors.white,
+                      ],
                     ),
                   ),
-                  const Gap(26),
+                  const Gap(20),
                   Divider(
                     color: Colors.white.withOpacity(0.2),
                   ),
-                  const Gap(26),
+                  const Gap(20),
                   ConnectLinks(
                     themeData: themeData,
                     linkTitle: 'MAIL',

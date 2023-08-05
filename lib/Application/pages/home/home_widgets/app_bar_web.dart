@@ -22,8 +22,8 @@ class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
       title: Padding(
         padding: const EdgeInsets.only(
           top: 20,
-          left: 100,
-          right: 100,
+          left: 140,
+          right: 140,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
