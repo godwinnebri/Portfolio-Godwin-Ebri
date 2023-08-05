@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
-class AboutWeb extends StatelessWidget {
-  const AboutWeb({super.key});
+class MyWorkMobile extends StatelessWidget {
+  const MyWorkMobile({super.key});
 
   static const pageConfig = PageConfig(
-    name: 'about',
-    child: AboutWeb(),
+    name: 'my_work_mobile',
+    child: MyWorkMobile(),
   );
 
   @override
@@ -19,7 +19,7 @@ class AboutWeb extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/webbg.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/images/mobilebg.png'), fit: BoxFit.cover),
       ),
       child: Center(
         child: GradientText(

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarMobile({
+class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarWeb({
     required this.themeData,
     super.key,
     required this.homeOnPressed,
     required this.workOnPressed,
     required this.aboutOnPressed,
     required this.contactOnPressed,
+    required this.index,
   });
 
   final ThemeData themeData;
@@ -15,17 +16,22 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback workOnPressed;
   final VoidCallback aboutOnPressed;
   final VoidCallback contactOnPressed;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: SizedBox(
+      title: Padding(
+        padding: const EdgeInsets.only(
+          top: 20,
+          left: 140,
+          right: 140,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            SizedBox(
               height: 18,
               child: GestureDetector(
                 onTap: homeOnPressed,
@@ -34,11 +40,7 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 18.0),
-            child: Row(
+            Row(
               //crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -49,9 +51,11 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                     child: Text(
                       'MY WORK',
                       style: themeData.textTheme.titleMedium?.copyWith(
-                        color: const Color(
-                          0xff98989C,
-                        ),
+                        color: index == 1
+                            ? Colors.white
+                            : const Color(
+                                0xff98989C,
+                              ),
                       ),
                     ),
                   ),
@@ -63,9 +67,11 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                     child: Text(
                       'ABOUT ME',
                       style: themeData.textTheme.titleMedium?.copyWith(
-                        color: const Color(
-                          0xff98989C,
-                        ),
+                        color: index == 2
+                            ? Colors.white
+                            : const Color(
+                                0xff98989C,
+                              ),
                       ),
                     ),
                   ),
@@ -75,19 +81,21 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                   child: Text(
                     'GET IN TOUCH',
                     style: themeData.textTheme.titleMedium?.copyWith(
-                      color: const Color(
-                        0xff98989C,
-                      ),
+                      color: index == 3
+                          ? Colors.white
+                          : const Color(
+                              0xff98989C,
+                            ),
                     ),
                   ),
                 ),
               ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
       flexibleSpace: const Image(
-        image: AssetImage('assets/images/appbarbgmobile.png'),
+        image: AssetImage('assets/images/appbarweb.png'),
         fit: BoxFit.cover,
       ),
       centerTitle: true,

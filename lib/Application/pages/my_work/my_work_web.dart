@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
-class AboutWeb extends StatelessWidget {
-  const AboutWeb({super.key});
+class MyWorkWeb extends StatelessWidget {
+  const MyWorkWeb({super.key});
 
   static const pageConfig = PageConfig(
-    name: 'about',
-    child: AboutWeb(),
+    name: 'web',
+    child: MyWorkWeb(),
   );
 
   @override

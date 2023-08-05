@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarWeb({
+class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarMobile({
     required this.themeData,
     super.key,
     required this.homeOnPressed,
     required this.workOnPressed,
     required this.aboutOnPressed,
     required this.contactOnPressed,
+    required this.index,
   });
 
   final ThemeData themeData;
@@ -15,21 +16,18 @@ class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback workOnPressed;
   final VoidCallback aboutOnPressed;
   final VoidCallback contactOnPressed;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Padding(
-        padding: const EdgeInsets.only(
-          top: 20,
-          left: 140,
-          right: 140,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SizedBox(
+      title: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 23),
+            child: SizedBox(
               height: 18,
               child: GestureDetector(
                 onTap: homeOnPressed,
@@ -38,7 +36,11 @@ class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-            Row(
+          ),
+          const SizedBox(height: 18),
+          Padding(
+            padding: const EdgeInsets.only(left: 18.0),
+            child: Row(
               //crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -46,12 +48,15 @@ class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
                   onTap: workOnPressed,
                   child: SizedBox(
                     width: 77,
+                    height: 32,
                     child: Text(
                       'MY WORK',
                       style: themeData.textTheme.titleMedium?.copyWith(
-                        color: const Color(
-                          0xff98989C,
-                        ),
+                        color: index == 1
+                            ? Colors.white
+                            : const Color(
+                                0xff98989C,
+                              ),
                       ),
                     ),
                   ),
@@ -60,34 +65,42 @@ class AppBarWeb extends StatelessWidget implements PreferredSizeWidget {
                   onTap: aboutOnPressed,
                   child: SizedBox(
                     width: 77,
+                    height: 32,
                     child: Text(
                       'ABOUT ME',
                       style: themeData.textTheme.titleMedium?.copyWith(
-                        color: const Color(
-                          0xff98989C,
-                        ),
+                        color: index == 2
+                            ? Colors.white
+                            : const Color(
+                                0xff98989C,
+                              ),
                       ),
                     ),
                   ),
                 ),
                 GestureDetector(
                   onTap: contactOnPressed,
-                  child: Text(
-                    'GET IN TOUCH',
-                    style: themeData.textTheme.titleMedium?.copyWith(
-                      color: const Color(
-                        0xff98989C,
+                  child: SizedBox(
+                    height: 32,
+                    child: Text(
+                      'GET IN TOUCH',
+                      style: themeData.textTheme.titleMedium?.copyWith(
+                        color: index == 3
+                            ? Colors.white
+                            : const Color(
+                                0xff98989C,
+                              ),
                       ),
                     ),
                   ),
                 ),
               ],
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
       flexibleSpace: const Image(
-        image: AssetImage('assets/images/appbarweb.png'),
+        image: AssetImage('assets/images/appbarbgmobile.png'),
         fit: BoxFit.cover,
       ),
       centerTitle: true,
