@@ -11,7 +11,7 @@ import 'package:godwin_ebri_portfolio/Application/pages/widgets/app_bar_web.dart
 import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
 
 class NavPage extends StatefulWidget {
-  NavPage({
+  const NavPage({
     super.key,
     //required String tab,
   }); //: index = tabs.indexWhere((element) => element.name == tab);

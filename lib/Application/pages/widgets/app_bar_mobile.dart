@@ -29,7 +29,7 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.only(top: 23),
             child: SizedBox(
               height: 18,
-              child: GestureDetector(
+              child: InkWell(
                 onTap: homeOnPressed,
                 child: const Image(
                   image: AssetImage('assets/images/G.E.png'),
@@ -44,7 +44,7 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
               //crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: workOnPressed,
                   child: SizedBox(
                     width: 77,
@@ -61,7 +61,7 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: aboutOnPressed,
                   child: SizedBox(
                     width: 77,
@@ -78,7 +78,7 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: contactOnPressed,
                   child: SizedBox(
                     height: 32,

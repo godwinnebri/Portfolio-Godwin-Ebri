@@ -17,7 +17,7 @@ final routes = GoRouter(
       name: 'navpage',
       path: '$_basePath/${NavPage.pageConfig.name}',
       builder: (context, state) {
-        return NavPage();
+        return const NavPage();
       },
     ),
   ],

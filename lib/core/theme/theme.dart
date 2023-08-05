@@ -140,7 +140,7 @@ class AppTheme {
       primaryContainer: _darkContainerColor,
     ),
     textTheme: _textTheme,
-    bottomAppBarTheme: BottomAppBarTheme(
+    bottomAppBarTheme: const BottomAppBarTheme(
       color: _appbarColorDark,
     ),
   );

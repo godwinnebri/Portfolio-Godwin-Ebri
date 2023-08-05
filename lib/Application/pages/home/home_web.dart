@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:godwin_ebri_portfolio/Application/pages/home/home_widgets/connect_link.dart';
+import 'package:godwin_ebri_portfolio/Application/pages/home/home_widgets/icon_links.dart';
 import 'package:godwin_ebri_portfolio/core/routing/page_config.dart';
-import 'package:godwin_ebri_portfolio/core/theme/theme.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class HomeWeb extends StatelessWidget {
@@ -104,16 +104,30 @@ class HomeWeb extends StatelessWidget {
                         ),
                       ),
                       const Gap(40),
-                      SizedBox(
+                      const SizedBox(
                         height: 22,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/github.png'),
-                            const Gap(24),
-                            Image.asset('assets/images/dribbble.png'),
-                            const Gap(24),
-                            Image.asset('assets/images/instagram.png'),
+                            IconLinks(
+                              link: 'https://github.com/godwinnebri',
+                              icon: 'assets/images/github.png',
+                            ),
+                            Gap(24),
+                            IconLinks(
+                              link: 'https://dribbble.com/godwinebri',
+                              icon: 'assets/images/dribbble.png',
+                            ),
+                            Gap(24),
+                            IconLinks(
+                              link: 'https://www.instagram.com/godwinnebri',
+                              icon: 'assets/images/instagram.png',
+                            ),
+                            Gap(24),
+                            IconLinks(
+                              link: 'https://x.com/gxdwinn',
+                              icon: 'assets/images/x.png',
+                            ),
                           ],
                         ),
                       ),
